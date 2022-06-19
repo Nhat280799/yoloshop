@@ -1,0 +1,124 @@
+.header{
+    background-color: $main-bg;
+    height: 100px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: height;
+    width: 100%;
+    z-index: 99;
+
+    @include tablet{
+        box-shadow: $box-shadow;
+        height: 70px;
+    }
+
+    .container{
+        height : 100%;
+
+        @include tablet{
+            padding: 0 20px;
+        }
+
+        .header__logo{
+            @include flex(center,center);
+            pointer-events: none;
+            position: absolute;
+            height: 100%;
+            inset: 0;
+            
+            img{
+                height: 28px;
+            }
+        }
+
+        .header__menu{
+            @include flex(center,space-between);
+            font-size: 1.5rem;
+            height: 100%;
+
+            &__mobile__toggle{
+                display: none;
+
+                @include tablet{
+                    display: block;
+                }
+            }
+
+            &__left , &__right{
+                @include flex(center,center);
+                height: 100%;
+            }
+
+            &__left{
+                @include tablet{
+                    background-color : $main-bg;
+                    flex-direction: column;
+                    height: 100vh;
+                    justify-content: flex-start;
+                    left: 0;
+                    padding-top: 30px;
+                    position: absolute;
+                    top: 0;
+                    transform: translateX(-100%);
+                    transition: transform .5s ease,-webkit-transform .5s ease;
+                    width: 100%;
+                }
+
+                &.active{
+                    transform: translateX(0);
+                }
+
+                &__close{
+                    display : none;
+
+                    @include tablet{
+                    display: block; 
+                    font-size: 2rem;
+                    left: 20px;
+                    position: absolute;
+                    }
+                }
+            }
+
+
+            &__right{
+                font-size: 2.25rem;
+
+                @include mobile{
+                    font-size: 1.5rem;  
+                }
+            }
+
+            &__left__item{
+                margin-left: 39px;
+
+                &.active{
+                color: $main-color;
+                }
+
+                @include tablet{
+                    padding: 10px;
+                }
+            }
+
+            &__left__item:hover , &__right__item:hover{
+                color: $main-color;
+            }
+
+            &__right__item{
+                @include flex(center,center);
+                margin-left: 39px;
+
+            }
+        }
+
+    }
+
+    &.shrink{
+        box-shadow: $box-shadow;
+        height: 40px;
+        z-index: 100;
+    }
+
+}
