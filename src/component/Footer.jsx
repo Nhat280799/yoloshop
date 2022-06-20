@@ -104,7 +104,7 @@ const Footer = () => {
               <div className="footer__about">
                 <p>
                   <Link to="/">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="" className='footer__logo' />
                   </Link>
                 </p>
                 <p>

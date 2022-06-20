@@ -1,10 +1,13 @@
-import React from 'react'
-
+import React , {useCallback , useEffect , useState} from 'react'
+import HeroSlider from '../component/HeroSlider'
+import heroSliderData from '../assets/fake-data/heroSliderData'
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+        <HeroSlider 
+          data={heroSliderData}
+          control = {true}
+          auto = {true}
+        />
   )
 }
 
