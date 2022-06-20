@@ -2,7 +2,7 @@ const policy = [
     {
         name: "Miễn phí giao hàng",
         description: "Miễn phí ship với đơn hàng > 239K",
-        icon: "bx bx-shopping-bag"
+        icon: 'fas fa-analytics'
     },
     {
         name: "Thanh toán COD",

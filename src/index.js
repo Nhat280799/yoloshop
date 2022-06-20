@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './sass/index.scss';
 import Layout from './component/Layout'
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
