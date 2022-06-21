@@ -1,0 +1,50 @@
+.catalog{
+    @include flex(flex-start,flex-start);
+
+    &__filter{
+        width: 20%;
+
+        &__widget{
+            margin-bottom : 2rem;
+
+            &__title{
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 16px;
+                text-transform: capitalize;
+            }
+
+            &__content{
+                color: $txt-second-color;
+
+                &__item{
+                    margin-bottom: 13px;
+
+                    input{
+                        cursor: pointer;
+                        height: 0;
+                        opacity: 0;
+                        position: absolute;
+                        width: 0;
+                    }
+
+                    .custom-checkbox{
+                        cursor: pointer;
+                        @include flex(center,flex-start);
+
+                        &__checkmark{
+                            border: 1px solid #8d8d8d;
+                            height: 15px;
+                            margin-right: 10px;
+                            width: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__content{
+        flex-grow: 1;
+    }
+}

@@ -32,8 +32,8 @@ const product_10_image_02 = require('../images/products/product-10 (2).jpg')
 const product_11_image_01 = require('../images/products/product-11 (1).jpg')
 const product_11_image_02 = require('../images/products/product-11 (2).jpg')
 
-const product_12_image_01 = require('../images/products/product-12 (1).jpg').default
-const product_12_image_02 = require('../images/products/product-12 (2).jpg').default
+const product_12_image_01 = require('../images/products/product-12 (1).jpg')
+const product_12_image_02 = require('../images/products/product-12 (2).jpg')
 
 const products = [
     {
