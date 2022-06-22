@@ -56,5 +56,92 @@
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
         }
+
+        &.expand{
+            height: max-content;
+        }
+    }
+
+    &__info{
+        flex-grow: 1;
+        padding-top: 2rem;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 40px;
+
+        &__item{
+            margin-top: 2rem;
+
+            &__price{
+                color: #4267b2;
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            &__title{
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .btn{
+                margin-right: 10px;
+            }
+
+            &__quantity{
+                @include flex(flex-start,flex-start);
+
+                &__input{
+                    border-bottom: 2px solid #8d8d8d;
+                    border-top: 2px solid #8d8d8d;
+                    width: 90px;
+                }
+
+                &__btn , &__input{
+                    align-items:center;
+                    @include flex(center,center);
+                    font-size: 1.5rem;
+                    height: 30px;
+                }
+                &__btn{
+                    border: 2px solid #8d8d8d;
+                    cursor: pointer;
+                    width: 30px;
+                }
+            }
+
+            &__list{
+                @include flex(center,flex-start);
+
+                &__item{
+                    align-items: center;
+                    border: 2px solid #8d8d8d;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    height: 50px;
+                    justify-content: center;
+                    margin-right: 1rem;
+                    width: 50px;
+
+                    .circle{
+                        border-radius: 50%;
+                        height: 40px;
+                        width: 40px;
+                    }
+
+                    &__size{
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                    }
+
+                }
+            }
+        }
+    }
+
+    &-description__title{
+        font-size: 2.5rem;
+        font-weight: 400;
     }
 }
