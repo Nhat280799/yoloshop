@@ -5,7 +5,7 @@ import numberWidthCommas from '../util/numberWidthCommas'
 const ProductCart = props => {
   return (
     <div className="product-card">
-        <Link to={`catalog/${props.slug}`}>
+        <Link to={`/catalog/${props.slug}`}>
             <div className="product-card__image">
                 <img src={props.image01} alt="" />
                 <img src={props.image02} alt="" />
