@@ -135,6 +135,10 @@
                         text-transform: uppercase;
                     }
 
+                    &.active{
+                        border-color: #4267b2;
+                    }
+
                 }
             }
         }

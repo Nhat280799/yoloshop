@@ -1,8 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
+import Button from './Button'
 import numberWidthCommas from '../util/numberWidthCommas'
+import {set} from '../redux/reduceProduct/ProductCartSlice'
+import { useSelector, useDispatch } from 'react-redux'
+ 
 const ProductCart = props => {
+   const dispath = useDispatch();
+
+
   return (
     <div className="product-card">
         <Link to={`/catalog/${props.slug}`}>
@@ -22,6 +29,16 @@ const ProductCart = props => {
                 </span>
             </div>
         </Link>
+        <div className="product-card__btn">
+                <Button
+                    size="sm"
+                    icon="xxx"
+                    animate={true}
+                    onClick  = {() => dispath(set(props.slug))}
+                >
+                    Chọn mua 
+                </Button>
+        </div>
     </div>
   )
 }

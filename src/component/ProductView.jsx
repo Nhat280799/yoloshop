@@ -1,13 +1,35 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button';
 import { FaAngleLeft , FaAngleRight } from "react-icons/fa";
-import numberWidthCommas from "../util/numberWidthCommas"
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/reduceCart/CartItemSlice';
+import numberWidthCommas from "../util/numberWidthCommas";
 const ProductView = props => {
   let productt = props.product;
   const [descriptionExpand, setDescriptionExpand] = useState(false);    
-  const [preveiewImg,setPreviewImg] = useState(productt.image01);
+  const [preveiewImg,setPreviewImg] = useState(undefined);
   const [quantity, setQuantity] = useState(1)
+  const [color,setColor] = useState(undefined);
+  const [size,setSize] = useState(undefined);
+
+  const dispath = useDispatch();
+
+    if (productt === undefined) productt = {
+        title: "",
+        price: '',
+        image01: null,
+        image02: null,
+        categorySlug: "",
+        colors: [],
+        slug: "",
+        size: [],
+        description: ""
+    }
+
+    useEffect(() => {
+        setPreviewImg(productt.image01);
+    },[productt])
 
 
   const updateQuantity = (type) => {
@@ -16,6 +38,32 @@ const ProductView = props => {
       }else{
         setQuantity(quantity - 1 < 1 ? 1 : quantity - 1)
       }
+  }
+
+
+  const check = () => {
+    if(color === undefined){
+        alert("vui lòng chọn màu");
+        return false;
+    }
+
+    if(size === undefined){
+        alert("vui lòng chọn size");
+        return false;
+    }
+    return true;
+  }
+
+  const addtoCart = () => {
+        if(check()){
+            dispath(addItem({
+                slug : productt.slug,
+                price : productt.price,
+                color : color ,
+                size : size ,
+                quantity : quantity
+            }))
+        }
   }
 
   return (
@@ -57,7 +105,7 @@ const ProductView = props => {
                     {
                         productt.colors.map((item,index) => {
                         return (
-                            <div className="product__info__item__list__item" key={index}>
+                            <div className={`product__info__item__list__item ${color === item ? "active" : ""}`} key={index} onClick={() => setColor(item)}>
                                 <div className={`circle bg-${item}`}></div>
                             </div>
                         )
@@ -71,7 +119,7 @@ const ProductView = props => {
                     {
                         productt.size.map((item,index) => {
                         return (
-                            <div className="product__info__item__list__item">
+                            <div className={`product__info__item__list__item ${size === item ? "active" : ""}`}  onClick={() => setSize(item)}>
                             <span className="product__info__item__list__item__size" key={index}>
                                         {item}
                             </span>
@@ -95,8 +143,8 @@ const ProductView = props => {
                     </div>
             </div>
             <div className="product__info__item">
-                    <Button>thêm vào giỏ</Button>
-                    <Button>mua ngay</Button>
+                    <Button size="sm" onClick={addtoCart}>thêm vào giỏ</Button>
+                    <Button size="sm">mua ngay</Button>
             </div>
         </div>
     </div>

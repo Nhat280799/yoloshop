@@ -56,7 +56,7 @@ const Home = () => {
                       <ProductCart
                         key={index} 
                         title={item.title}
-                        price={item.price}
+                        price={Number(item.price)}
                         image01={item.image01}
                         image02={item.image02}
                         slug={item.slug}
@@ -84,7 +84,7 @@ const Home = () => {
                       <ProductCart
                         key={index} 
                         title={item.title}
-                        price={item.price}
+                        price={Number(item.price)}
                         image01={item.image01}
                         image02={item.image02}
                         slug={item.slug}
@@ -117,7 +117,7 @@ const Home = () => {
                       <ProductCart
                         key={index} 
                         title={item.title}
-                        price={item.price}
+                        price={Number(item.price)}
                         image01={item.image01}
                         image02={item.image02}
                         slug={item.slug}
