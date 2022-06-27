@@ -1,0 +1,44 @@
+.checkout__page{
+    @include flex(flex-start,flex-start);
+
+    &__form{
+        width: 60%;
+        padding: 40px;
+
+        input[type="text"]{
+            width: 100%;
+            height: 35px;
+            margin: 5px auto;
+        }
+
+        lable{
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+
+    &__cart{
+        flex-grow: 1;
+        padding-top: 45px;
+        &__name{
+            color: #4267b2;
+            margin-bottom: 10px;
+        }
+
+        .cart__list{
+            width: 100%;
+
+            .cart__item{
+
+                &__image{
+
+                    img{
+                        height: 110px;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

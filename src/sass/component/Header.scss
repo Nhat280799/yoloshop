@@ -109,7 +109,7 @@
             &__right__item{
                 @include flex(center,center);
                 margin-left: 39px;
-
+                position: relative;
             }
         }
 
@@ -121,4 +121,20 @@
         z-index: 100;
     }
 
+}
+
+.nitify__number{
+    background-color: red;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 50%;
+    padding: 0px 5px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    display: none;
+
+    &.active{
+        display: block;
+    }
 }

@@ -1,7 +1,8 @@
-import React , {useRef , useEffect} from 'react'
+import React , {useRef , useEffect , useState} from 'react'
 import {Link , useLocation} from 'react-router-dom'
 import logo from "../assets/images/Logo-2.png";
 import { FaAlignJustify , FaSearch , FaShoppingBag , FaRegUser , FaChevronLeft} from 'react-icons/fa';
+import {useSelector} from 'react-redux'
 const nav = [
     {
         display : "Trang chủ",
@@ -22,6 +23,8 @@ const nav = [
 ]
 
 const Header = () => {
+  const getNumber = useSelector((state) => state.listCart.value)
+  const [number,setNumber] = useState(0);
   const {pathname} = useLocation();
   const activeNav = nav.findIndex(e => e.path === pathname);
 
@@ -31,6 +34,11 @@ const Header = () => {
   const menuToggle = () => {
     menuleftRef.current.classList.toggle('active');
   }
+
+    useEffect(() => {
+        const neww = getNumber.length;
+        setNumber(Number(neww));
+    },[getNumber])
 
   useEffect(() => {
     window.addEventListener("scroll",() => {
@@ -77,6 +85,9 @@ const Header = () => {
                         <FaSearch />
                     </div>
                     <div className="header__menu__item header__menu__right__item">
+                        <div className={`nitify__number ${number === 0 ? '' : 'active'}`}>
+                            {number}
+                        </div>
                         <Link to="/cart">
                             <FaShoppingBag />
                         </Link>

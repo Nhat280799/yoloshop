@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Button from './Button';
 import { FaAngleLeft , FaAngleRight } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
-import { addItem } from '../redux/reduceCart/CartItemSlice';
+import { addItem , addNumberCart } from '../redux/reduceCart/CartItemSlice';
 import numberWidthCommas from "../util/numberWidthCommas";
 const ProductView = props => {
   let productt = props.product;
@@ -58,10 +58,10 @@ const ProductView = props => {
         if(check()){
             dispath(addItem({
                 slug : productt.slug,
-                price : productt.price,
-                color : color ,
-                size : size ,
-                quantity : quantity
+                color : color,
+                size : size,
+                quantity : quantity,
+                price : productt.price
             }))
         }
   }
@@ -140,7 +140,7 @@ const ProductView = props => {
                     <div class="product__info__item__quantity__btn" onClick={() => updateQuantity('plus')}>
                         <FaAngleRight />
                     </div>
-                    </div>
+                </div>
             </div>
             <div className="product__info__item">
                     <Button size="sm" onClick={addtoCart}>thêm vào giỏ</Button>
