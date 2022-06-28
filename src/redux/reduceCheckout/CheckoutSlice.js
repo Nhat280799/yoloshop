@@ -5,11 +5,11 @@ const initialState = {
 }
 
 export const CheckoutSlice = createSlice({
-  name: 'productModal',
+  name: 'checkoutPage',
   initialState,
   reducers: {
     addUser: (state,payload) => {
-        state.value = payload.payload
+        state.value = payload.payload;
     }
   },
 })
