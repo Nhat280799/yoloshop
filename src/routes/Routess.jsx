@@ -9,6 +9,7 @@ import Cart from '../pages/Cart'
 import Catalog from '../pages/Catalog'
 import Checkout from '../pages/Checkout'
 import Thankyou from '../pages/Thankyou';
+import Login from '../pages/Login';
 const Routess = () => {
   return (
     <Routes>
@@ -18,6 +19,7 @@ const Routess = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/thankyou" element={<Thankyou />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   )
 }

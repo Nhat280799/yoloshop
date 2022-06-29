@@ -10,6 +10,7 @@ export const CheckoutSlice = createSlice({
   reducers: {
     addUser: (state,payload) => {
         state.value = payload.payload;
+        window.localStorage.removeItem('cartItems');
     }
   },
 })
